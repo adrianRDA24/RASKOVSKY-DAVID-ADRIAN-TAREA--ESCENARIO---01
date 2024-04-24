@@ -1,31 +1,34 @@
 int numFilas = 3; // Número de filas
 int numRectangulos = 45; // Número de rectángulos por fila
-int ancho = 50; // Ancho de cada rectángulo
-int alto = 30; // Alto de cada rectángulo
+int ancho = 25; // Ancho de cada rectángulo
+int alto = 15; // Alto de cada rectángulo
 int separacion = 1; // Separación entre rectángulos
-int inicioX = 0; // Posición inicial en X
-int inicioY = 506; // Posición inicial en Y
+int inicioX = 0; // Posición inicial en X del primer ladrillo
+int inicioY = 536; // Posición inicial en Y del primer ladrillo
+//***** POSICION DE LA IMAGEN FONDO
+//int x = 0; //Posición inicial en X 
+//int y = 100; // Posición inicial en Y 
+//int velocidad = 5; // Velocidad de movimiento
+//PImage pezpayaso1;
 PImage fondo1;
 color tinte;
-
+  // Variable para almacenar la imagen que se moverá
 void setup() {
   size(800, 600);
-  fondo1 = loadImage("Fondo.png");
+  fondo1 = loadImage("Fondo.png");//,"sirena");
  // tinte = color(100,250,200); // Tinte #64FAC8
-  //paredLadrillos();
+ // pezpayaso1= loadImage("pezpayaso.png"); // Carga la imagen de fondo
 }
 
 void draw() {
- // paredLadrillos();
-   paredLadrillos();
-  //tint(tinte);
-  image(fondo1, 0, 0); //, width, height);
- //background(fondo);
-
+paredLadrillos();
+  tint(#ECF2C6);
+  image(fondo1, 0, 0, width, height-65);
+//background(fondo1);
+//paredLadrillos();
 }
 
 public void paredLadrillos(){
-
 //int numFilas = 3; // Número de filas
 //int numRectangulos = 45; // Número de rectángulos por fila
 //int ancho = 50; // Ancho de cada rectángulo
@@ -35,10 +38,10 @@ public void paredLadrillos(){
 //int inicioY = 506; // Posición inicial en Y
 
 //void setup() {
-//  size(800, 600);
+//  size(1000, 800);
   background(255);
   fill(#D14C0F);
-  stroke(#F5DACD);
+  stroke(0);//#F5DACD);
   for (int i = 0; i < numFilas; i++) {
     for (int j = 0; j < numRectangulos; j++) {
       float x = inicioX + (ancho + separacion) * j;

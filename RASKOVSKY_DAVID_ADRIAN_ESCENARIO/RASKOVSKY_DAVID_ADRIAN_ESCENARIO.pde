@@ -4,7 +4,9 @@ int ancho = 25; // Ancho de cada rectángulo
 int alto = 15; // Alto de cada rectángulo
 int separacion = 1; // Separación entre rectángulos
 int inicioX = 0; // Posición inicial en X del primer ladrillo
-int inicioY = 536; // Posición inicial en Y del primer ladrillo
+int inicioY = 554; // Posición inicial en Y del primer ladrillo
+
+// A----------PRESENTAR ----------  //////////////
 //***** POSICION DE LA IMAGEN FONDO
 //int x = 0; //Posición inicial en X 
 //int y = 100; // Posición inicial en Y 
@@ -23,22 +25,12 @@ void setup() {
 void draw() {
 paredLadrillos();
   tint(#ECF2C6);
-  image(fondo1, 0, 0, width, height-65);
+  image(fondo1, 0, 0, width, height-46);
 //background(fondo1);
 //paredLadrillos();
 }
 
 public void paredLadrillos(){
-//int numFilas = 3; // Número de filas
-//int numRectangulos = 45; // Número de rectángulos por fila
-//int ancho = 50; // Ancho de cada rectángulo
-//int alto = 30; // Alto de cada rectángulo
-//int separacion = 1; // Separación entre rectángulos
-//int inicioX = 0; // Posición inicial en X
-//int inicioY = 506; // Posición inicial en Y
-
-//void setup() {
-//  size(1000, 800);
   background(255);
   fill(#D14C0F);
   stroke(0);//#F5DACD);

@@ -11,37 +11,45 @@ int inicioY = 554; // Posicipn inicial en Y del primer ladrillo
 ////*******Posicion del pezpayaso mueve sin salirce de la pantalla
 int posENx = 200; //Posicion inicial en X 
 int posENy = 200; // Posicion inicial en Y 
-int velocidad = 5; // Velocidad de movimiento
+int velocidadPP = 7; // Velocidad de movimiento
 //////***para cambiar la direccion del pulpo
 //int direCCION= 1;
 //////
 PImage fondo1;
 PImage pezpayaso1;   // Variable para almacenar el pezpayaso
-PImage pulpo1; 
+PImage pulpo; //img
+Pulpo pulpo1;  //Myimage myimage
 //color tinte;
-
 void setup() {
   size(800, 600);
-  fondo1 = loadImage("Fondo.png");//,"sirena");
+  fondo1 = loadImage("Fondo.png");
  // tinte = color(100,250,200); // Tinte #64FAC8
 pezpayaso1= loadImage("pezpayaso.png"); // Carga el pezpayaso
-pulpo1= loadImage("pulpo.png");
-}
+ pulpo = loadImage("pulpo.png");
+  pulpo1 = new Pulpo(pulpo, new PVector(0, 100),new PVector(5, 0));
+//pulpo1 = new Pulpo(new PVector(width/2,0),new PVector(0,10));
+//pulpo =new Pulpo(pulpo1,40,100,5,1);
+//pulpo1.posicion= new PVector(width/2,height/2);
+//pulpo1.velocidad= new PVector(10,10);
+};
 
 void draw() {
   println("Antes de mover al pez payaso hacer clic en el lienzo");
-paredLadrillos(); //llama a paredLadrillos
 cargaFondo();
-image(fondo1, 0, 0, width, height-46);//coloca el fondo
+paredLadrillos(); //llama a paredLadrillos
+pulpo1.dibujar();
+pulpo1.mover();
+//image(fondo1, 0, 0, width, height-46);//coloca el fondo
 //paredLadrillos(); //llama a paredLadrillos
 //  tint(#ECF2C6); // aplicar tinte driectamente
 //**************image(fondo1, 0, 0, width, height-46);//coloca el fondo
 //background(fondo1);
 //paredLadrillos();
 //image(pezpayaso1,50,100,posENx,posENy);  //x, y); // carga el pezpayaso
-image(pulpo1,10,200,100,100);
+//image(pulpo1,10,200,100,100);
 movePezPayaso();
 //mueveYrebota(); // procedimiento mueve y revota el pulpo
+
 
 };
 ////////////mueve el pulpo
@@ -62,13 +70,13 @@ public void movePezPayaso(){ // mueve con las teclas
     if (keyPressed) {
    // println("tecla pres= "+ posENy+" ancho "+width+" alto "+height);
       if (keyCode == UP) {
-          posENy -= velocidad;
+          posENy -= velocidadPP;
         } else if (keyCode == DOWN) {
-          posENy += velocidad;
+          posENy += velocidadPP;
         } else if (keyCode == LEFT) {
-          posENx -= velocidad;
+          posENx -= velocidadPP;
         } else if (keyCode == RIGHT) {
-          posENx += velocidad;
+          posENx += velocidadPP;
         }
     //-**** Controla que la imagen no se salga de la pantalla
     if (posENx < 0) {

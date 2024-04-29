@@ -24,17 +24,17 @@ Pulpo pulpo1;  //Myimage myimage
 NavePez pezNave1;  //** variable de la clase
 /////////////////////////////////////////////
 //color tinte;
-
 void setup() {
 size(800, 600);
 /////////////////////////////////////
 //PImage pezNave=loadImage("navepez.png");
 //pezNave1=new NavePez(pezNave);
 pezNave1 =new NavePez(); // defino variable para el CONSTRUCTOR
+pezNave1.posicion = new PVector(width/2,height/2);
 /////////////////////////////////////
 //********** SETUP FONDO DEL JUEGO  ///////////***********************  
  PImage fondo1= loadImage("fondo.png");
-   fondo= new FondoImagen(fondo1);  // creo nuevo objeto tipo FondoImagen
+ fondo= new FondoImagen(fondo1);  // creo nuevo objeto tipo FondoImagen
   //fondo1 = loadImage("Fondo.png");
  // tinte = color(100,250,200); // Tinte #64FAC8
 //********** FIN SETUP FONDO DEL JUEGO  ///////////***********************  
@@ -50,11 +50,16 @@ pulpo1 = new Pulpo(pulpo, new PVector(0, 100),new PVector(5, 0));
 };
 
 void draw() {
-println("Antes de mover al pez payaso hacer clic en el lienzo");
 //****************** LLAMA Y DIBUJA EL FONDO ******************
 //cargaFondo();
-fondo.dibujarFondo();
+  fondo.dibujarFondo(); // AQUI SI SALE EL FONDO ATRAS DE TODO
 //****************** FIN LLAMA Y DIBUJA EL FONDO ******************
+println("Antes de mover al pez payaso hacer clic en el lienzo");
+
+pezNave1.dibujarNavePez(); // llamo al metodo de la clase
+
+//fondo.dibujarFondo(); // AQUI NO VA POR QUE TAPA AL PezNave1
+
 paredLadrillos(); //llama a paredLadrillos
 pulpo1.dibujar();
 pulpo1.mover();
@@ -69,7 +74,7 @@ pulpo1.mover();
 movePezPayaso();
 //mueveYrebota(); // procedimiento mueve y revota el pulpo
 
-
+ //fondo.dibujarFondo(); // AQUI NO SALE ENCIMA DE TODO
 };
 ////////////mueve el pulpo
 //public void mueveYrebota(){

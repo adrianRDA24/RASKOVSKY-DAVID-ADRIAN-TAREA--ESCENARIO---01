@@ -20,10 +20,18 @@ int velocidadPP = 7; // Velocidad de movimiento
 PImage pezpayaso1;   // Variable para almacenar el pezpayaso
 PImage pulpo; //img
 Pulpo pulpo1;  //Myimage myimage
-
+//////////////////////////////////////////////
+NavePez pezNave1;  //** variable de la clase
+/////////////////////////////////////////////
 //color tinte;
+
 void setup() {
-  size(800, 600);
+size(800, 600);
+/////////////////////////////////////
+//PImage pezNave=loadImage("navepez.png");
+//pezNave1=new NavePez(pezNave);
+pezNave1 =new NavePez(); // defino variable para el CONSTRUCTOR
+/////////////////////////////////////
 //********** SETUP FONDO DEL JUEGO  ///////////***********************  
  PImage fondo1= loadImage("fondo.png");
    fondo= new FondoImagen(fondo1);  // creo nuevo objeto tipo FondoImagen
@@ -31,8 +39,10 @@ void setup() {
  // tinte = color(100,250,200); // Tinte #64FAC8
 //********** FIN SETUP FONDO DEL JUEGO  ///////////***********************  
 pezpayaso1= loadImage("pezpayaso.png"); // Carga el pezpayaso
- pulpo = loadImage("pulpo.png");
-  pulpo1 = new Pulpo(pulpo, new PVector(0, 100),new PVector(5, 0));
+////////////////////////////////////////
+pulpo = loadImage("pulpo.png");
+pulpo1 = new Pulpo(pulpo, new PVector(0, 100),new PVector(5, 0));
+//////////////////////////////////////////////////////////////////
 //pulpo1 = new Pulpo(new PVector(width/2,0),new PVector(0,10));
 //pulpo =new Pulpo(pulpo1,40,100,5,1);
 //pulpo1.posicion= new PVector(width/2,height/2);

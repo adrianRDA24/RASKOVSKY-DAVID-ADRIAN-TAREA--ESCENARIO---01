@@ -15,15 +15,21 @@ int velocidadPP = 7; // Velocidad de movimiento
 //////***para cambiar la direccion del pulpo
 //int direCCION= 1;
 //////
-PImage fondo1;
+ FondoImagen fondo; //***** USO LA CLASE FondoImagen
+//PImage fondo1;
 PImage pezpayaso1;   // Variable para almacenar el pezpayaso
 PImage pulpo; //img
 Pulpo pulpo1;  //Myimage myimage
+
 //color tinte;
 void setup() {
   size(800, 600);
-  fondo1 = loadImage("Fondo.png");
+//********** SETUP FONDO DEL JUEGO  ///////////***********************  
+ PImage fondo1= loadImage("fondo.png");
+   fondo= new FondoImagen(fondo1);  // creo nuevo objeto tipo FondoImagen
+  //fondo1 = loadImage("Fondo.png");
  // tinte = color(100,250,200); // Tinte #64FAC8
+//********** FIN SETUP FONDO DEL JUEGO  ///////////***********************  
 pezpayaso1= loadImage("pezpayaso.png"); // Carga el pezpayaso
  pulpo = loadImage("pulpo.png");
   pulpo1 = new Pulpo(pulpo, new PVector(0, 100),new PVector(5, 0));
@@ -34,8 +40,11 @@ pezpayaso1= loadImage("pezpayaso.png"); // Carga el pezpayaso
 };
 
 void draw() {
-  println("Antes de mover al pez payaso hacer clic en el lienzo");
-cargaFondo();
+println("Antes de mover al pez payaso hacer clic en el lienzo");
+//****************** LLAMA Y DIBUJA EL FONDO ******************
+//cargaFondo();
+fondo.dibujarFondo();
+//****************** FIN LLAMA Y DIBUJA EL FONDO ******************
 paredLadrillos(); //llama a paredLadrillos
 pulpo1.dibujar();
 pulpo1.mover();
@@ -94,10 +103,11 @@ public void movePezPayaso(){ // mueve con las teclas
 }
 }
 //***** Proceso que dibuja la pared de ladrillos
-public void cargaFondo(){
-image(fondo1, 0, 0, width, height-46);//coloca el fond/o
+//****** Muestra el fondo  //********************
+    //public void cargaFondo(){
+    //image(fondo1, 0, 0, width, height-46);//coloca el fond/o
 ////image(fondo1, 0, 0);//coloca el fondo
-}
+//}
 public void paredLadrillos(){
   //background(255);
   fill(#D14C0F);

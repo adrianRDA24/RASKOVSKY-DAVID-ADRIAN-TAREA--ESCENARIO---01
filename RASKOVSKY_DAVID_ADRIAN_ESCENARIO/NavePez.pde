@@ -2,7 +2,7 @@ class NavePez{
 //****ATRIBUTOS *********//
 public PVector posicion;
 public PImage imagen;
-public PImage velocidad;
+public PVector velocidad;
 
 //*** constructor *****//
 public NavePez(){

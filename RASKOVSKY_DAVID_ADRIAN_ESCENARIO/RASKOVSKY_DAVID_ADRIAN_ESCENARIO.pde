@@ -30,7 +30,9 @@ size(800, 600);
 //PImage pezNave=loadImage("navepez.png");
 //pezNave1=new NavePez(pezNave);
 pezNave1 =new NavePez(); // defino variable para el CONSTRUCTOR
-pezNave1.posicion = new PVector(width/2,height/2);
+pezNave1.posicion = new PVector(width/2-109,height/2-179);
+pezNave1.velocidad = new PVector(10,0); // se mueve horizontal
+
 /////////////////////////////////////
 //********** SETUP FONDO DEL JUEGO  ///////////***********************  
  PImage fondo1= loadImage("fondo.png");
@@ -92,17 +94,19 @@ movePezPayaso();
 
 public void keyPressed(){
 if (key == 'd') {
-          pezNave1.posicion.x += 10;
+          //pezNave1.posicion.x += 10;
+          pezNave1.posicion.x += pezNave1.velocidad.x; 
         }
 if (key == 'a') {
-          pezNave1.posicion.x -= 10;
+          //pezNave1.posicion.x -= 10;
+          pezNave1.posicion.x -= pezNave1.velocidad.x;
         }
-if (key == 'w') {
-          pezNave1.posicion.y -= 10;
-        }
-if (key == 's') {
-          pezNave1.posicion.y += 10;
-        }
+//if (key == 'w') {
+//          pezNave1.posicion.y -= 10;
+//        }
+//if (key == 's') {
+//          pezNave1.posicion.y += 10;
+//        }
 };
 public void movePezPayaso(){ // mueve con las teclas
      image(pezpayaso1, posENx, posENy); // carga el pezpayaso

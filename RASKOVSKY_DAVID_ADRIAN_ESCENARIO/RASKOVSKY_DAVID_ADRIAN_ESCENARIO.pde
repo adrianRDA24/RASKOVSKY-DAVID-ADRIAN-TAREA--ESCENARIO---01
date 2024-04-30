@@ -1,12 +1,12 @@
 
 //**********VARIABLES DE LA PARED DE LADRILLOS
-  int numFilas = 3; // Numero de filas
-  int numRectangulos = 45; // Número de rectángulos por fila
-  int ancho = 25; // Ancho de cada rectángulo
-  int alto = 15; // Alto de cada rectangulo
-  int separacion = 1; // Separacion entre rectángulos
-  int inicioX = 0; // Posicion inicial en X del primer ladrillo
-  int inicioY = 554; // Posicipn inicial en Y del primer ladrillo
+    //int numFilas = 3; // Numero de filas
+    //int numRectangulos = 45; // Número de rectángulos por fila
+    //int ancho = 25; // Ancho de cada rectángulo
+    //int alto = 15; // Alto de cada rectangulo
+    //int separacion = 1; // Separacion entre rectángulos
+    //int inicioX = 0; // Posicion inicial en X del primer ladrillo
+    //int inicioY = 554; // Posicipn inicial en Y del primer ladrillo
 ////
 ////*******Posicion del pezpayaso mueve sin salirce de la pantalla
 int posENx = 200; //Posicion inicial en X 
@@ -26,9 +26,19 @@ NavePez pezNave1;  //** variable de la clase
 color tinte;
 //*****************NUBES DEL CIELO *********//////////
 ArrayList<Nubes> elipses = new ArrayList<Nubes>();
+//****************PARED DE LADRILLOS **************///
+ParedLadrillos pared ;
 //////////////////////////////////////////////////////
 void setup() {
 size(800, 600);
+//********* pared de ladrillos******************************
+    pared = new ParedLadrillos(2, 50, 17, 10); 
+//background(255); // Fondo blanco
+  pared.construirPared(); // llamo al Metodo dela clase y dibuja la pared de ladrillos
+////*********** Dibujar todas las elipses en el lienzo******
+  
+//***nuevo objeto = al constructor(le mando parametros);
+//********* FIN pared de ladrillos**************************
 //*** NUBES  - crea una fila de elipses *****************/////////
   float posY = 1; //100;
   float posX = 0;
@@ -76,17 +86,22 @@ void draw() {
 fondo.dibujarFondo(); // AQUI SI SALE EL FONDO ATRAS DE TODO
 //****************** FIN LLAMA Y DIBUJA EL FONDO ******************
 
-//*****************  NUBES  ********************
+//*****************  NUBES DEL DRAW  ********************
 ponerLasNubes();
+//*****************  FIN NUBES DEL DRAW  ********************
+//***************pared de ladrillos DEL DRAW  *************************
+//background(255); // Fondo blanco
+  pared.construirPared(); // llamo al Metodo dela clase y dibuja la pared de ladrillos
+//*************** FIN PARE LADRILLOS DEL DRAW   *******************
 
 println("Antes de mover al pez payaso hacer clic en el lienzo");
-
+//***************** NAVE PEZ DEL DRAWW ********************//
 pezNave1.dibujarNavePez(); // llamo al metodo de la clase
     //pezNave1.posicion.x= mouseX; //si funciona
     //pezNave1.posicion.y= mouseY;   //si funciona
+//***************** FIN NAVE PEZ DEL DRAWW ********************//
     //fondo.dibujarFondo(); // AQUI NO VA POR QUE TAPA AL PezNave1
-
-paredLadrillos(); //llama a paredLadrillos
+    //paredLadrillos(); //llama a paredLadrillos
 pulpo1.dibujar();
 pulpo1.mover();
     //image(fondo1, 0, 0, width, height-46);//coloca el fondo
@@ -172,15 +187,16 @@ public void movePezPayaso(){ // mueve con las teclas
     //image(fondo1, 0, 0, width, height-46);//coloca el fond/o
 ////image(fondo1, 0, 0);//coloca el fondo
 //}
-    public void paredLadrillos(){
-      //background(255);
-      fill(#D14C0F);
-      stroke(0);//#F5DACD);
-      for (int i = 0; i < numFilas; i++) {
-        for (int j = 0; j < numRectangulos; j++) {
-          float x = inicioX + (ancho + separacion) * j;
-          float y = inicioY + (alto + separacion) * i;
-          rect(x, y, ancho, alto);
-        }
-      }
-    };
+//******************  PARED DE LADRILLOS  ******************
+ //public void paredLadrillos(){
+    //  //background(255);
+    //  fill(#D14C0F);
+    //  stroke(0);//#F5DACD);
+    //  for (int i = 0; i < numFilas; i++) {
+    //    for (int j = 0; j < numRectangulos; j++) {
+    //      float x = inicioX + (ancho + separacion) * j;
+    //      float y = inicioY + (alto + separacion) * i;
+    //      rect(x, y, ancho, alto);
+    //    }
+    //  }
+    //};

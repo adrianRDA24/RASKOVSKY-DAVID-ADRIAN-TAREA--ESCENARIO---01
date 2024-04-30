@@ -2,7 +2,7 @@ class Pulpo{
   private PVector posicion;
   private PImage pulpo;
   private PVector velocidad;
-// private PVector direccionPP;
+  // private PVector direccionPP;
 // constructor
 //public Pulpo(){
 //Pulpo = loadImage("pulpo.png");

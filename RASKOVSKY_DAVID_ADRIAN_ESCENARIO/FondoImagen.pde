@@ -8,7 +8,7 @@ PImage img;  //background
 public FondoImagen(PImage img){ // el construtor lleva public o no??
   this.img = img;  // atributo del constructor
 }
-void dibujarFondo(){  // metodo para dibujar del constructor
+void dibujarFondo(){  // metodo para dibujar del constructor??
 image(img,0,0,width,height);
 }
 };

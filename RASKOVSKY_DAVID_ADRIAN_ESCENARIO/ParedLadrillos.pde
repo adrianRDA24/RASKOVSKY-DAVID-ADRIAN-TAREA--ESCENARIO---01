@@ -14,6 +14,7 @@ class ParedLadrillos{
   void construirPared() {
     //int ia=0;
     //int ja=0;
+    stroke(#CBCBB1); // color linea
     fill(255, 0, 0); // Color de los ladrillos (rojo)
      for (int i = 0; i < numFilas; i++) {
       for (int j = 0; j < numLadrillosPorFila; j++) {

@@ -10,8 +10,9 @@ class Nubes{
   }
   
   void dibujar() {
-    noFill(); // sin borde 
-   stroke(240,252,255,45);// Borde 
+    //noFill(); // sin borde 
+   stroke(240,252,255,100); //en fill es transparente;// Borde 
+   fill(240,252,255,150);
    //stroke(#AAC2E0);
     ellipse(x, y, ancho, alto);
     fill(240,253,251); // Color de relleno gris

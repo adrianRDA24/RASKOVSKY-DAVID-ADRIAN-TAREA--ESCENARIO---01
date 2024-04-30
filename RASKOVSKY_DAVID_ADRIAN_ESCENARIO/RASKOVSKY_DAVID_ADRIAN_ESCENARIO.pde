@@ -64,20 +64,20 @@ pezpayaso1= loadImage("pezpayaso.png"); // Carga el pezpayaso
 pulpo = loadImage("pulpo.png");
 pulpo1 = new Pulpo(pulpo, new PVector(0, 100),new PVector(5, 0));
 //////////////////////////////////////////////////////////////////
-//pulpo1 = new Pulpo(new PVector(width/2,0),new PVector(0,10));
-//pulpo =new Pulpo(pulpo1,40,100,5,1);
-//pulpo1.posicion= new PVector(width/2,height/2);
-//pulpo1.velocidad= new PVector(10,10);
+    //pulpo1 = new Pulpo(new PVector(width/2,0),new PVector(0,10));
+    //pulpo =new Pulpo(pulpo1,40,100,5,1);
+    //pulpo1.posicion= new PVector(width/2,height/2);
+    //pulpo1.velocidad= new PVector(10,10);
 };
 
 void draw() {
 //****************** LLAMA Y DIBUJA EL FONDO ******************
 //cargaFondo();
-  fondo.dibujarFondo(); // AQUI SI SALE EL FONDO ATRAS DE TODO
+fondo.dibujarFondo(); // AQUI SI SALE EL FONDO ATRAS DE TODO
 //****************** FIN LLAMA Y DIBUJA EL FONDO ******************
 
 //*****************  NUBES  ********************
-  ponerLasNubes();
+ponerLasNubes();
 
 println("Antes de mover al pez payaso hacer clic en el lienzo");
 

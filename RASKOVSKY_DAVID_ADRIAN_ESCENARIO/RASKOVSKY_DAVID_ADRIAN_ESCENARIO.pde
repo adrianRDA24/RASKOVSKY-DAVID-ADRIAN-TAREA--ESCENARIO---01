@@ -57,7 +57,8 @@ void draw() {
 println("Antes de mover al pez payaso hacer clic en el lienzo");
 
 pezNave1.dibujarNavePez(); // llamo al metodo de la clase
-
+//pezNave1.posicion.x= mouseX; //si funciona
+//pezNave1.posicion.y= mouseY;   //si funciona
 //fondo.dibujarFondo(); // AQUI NO VA POR QUE TAPA AL PezNave1
 
 paredLadrillos(); //llama a paredLadrillos
@@ -89,6 +90,20 @@ movePezPayaso();
 //  }
 //};
 
+public void keyPressed(){
+if (key == 'd') {
+          pezNave1.posicion.x += 10;
+        }
+if (key == 'a') {
+          pezNave1.posicion.x -= 10;
+        }
+if (key == 'w') {
+          pezNave1.posicion.y -= 10;
+        }
+if (key == 's') {
+          pezNave1.posicion.y += 10;
+        }
+};
 public void movePezPayaso(){ // mueve con las teclas
      image(pezpayaso1, posENx, posENy); // carga el pezpayaso
     if (keyPressed) {

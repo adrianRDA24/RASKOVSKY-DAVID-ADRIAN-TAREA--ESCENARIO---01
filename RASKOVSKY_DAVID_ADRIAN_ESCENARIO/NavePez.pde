@@ -2,6 +2,8 @@ class NavePez{
 //****ATRIBUTOS *********//
 public PVector posicion;
 public PImage imagen;
+public PImage velocidad;
+
 //*** constructor *****//
 public NavePez(){
  imagen= loadImage("navepez.png"); //carga la imagen del disco en lavariable atributo

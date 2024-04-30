@@ -12,8 +12,8 @@ class ParedLadrillos{
     this.altoLadrillo = altoLadrillo;
   }
   void construirPared() {
-    int ia=0;
-    int ja=0;
+    //int ia=0;
+    //int ja=0;
     fill(255, 0, 0); // Color de los ladrillos (rojo)
      for (int i = 0; i < numFilas; i++) {
       for (int j = 0; j < numLadrillosPorFila; j++) {

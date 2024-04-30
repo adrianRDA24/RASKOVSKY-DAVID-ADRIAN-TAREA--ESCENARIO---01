@@ -1,4 +1,10 @@
 
+
+
+ArrayList<Estrella> estrellas = new ArrayList<Estrella>();
+int rectanguloAltura = 75;
+
+
 //**********VARIABLES DE LA PARED DE LADRILLOS
     //int numFilas = 3; // Numero de filas
     //int numRectangulos = 45; // Número de rectángulos por fila
@@ -31,6 +37,16 @@ ParedLadrillos pared ;
 //////////////////////////////////////////////////////
 void setup() {
 size(800, 600);
+//******* Crear estrellas dentro del rectangulo ***********//
+   for (int i = 0; i < 150; i++) {
+    float x = random(width);
+    float y = random(rectanguloAltura);
+    float tamaño = random(0,4);// tamaño de las estrellas
+    boolean brillante = random(1,4) > 0.5; // Establecer aleatoriamente si la estrella es brillante
+    Estrella estrella = new Estrella(x, y, tamaño, brillante);
+    estrellas.add(estrella);
+  }
+//******* fin Crear estrellas dentro del rectangulo ***********//
 //********* pared de ladrillos******************************
     pared = new ParedLadrillos(2, 50, 17, 10); 
 //background(255); // Fondo blanco
@@ -43,13 +59,13 @@ size(800, 600);
   float posY = 1; //100;
   float posX = 0;
     while (posX < width) {
-      float anchoElipse = random(10, 100); // ancho 10,100
+      float anchoElipse = random(0, 90); // ancho 10,100
        float altoElipse = random(10, 45);   // alto  5,10
     //float anchoElipse = random(10, 100);
     //float altoElipse = random(5, 10);
- if(altoElipse/2 < anchoElipse){
+ if(altoElipse < anchoElipse){
    //MANDA AL CONSTRUCTOR
-    Nubes elipse = new Nubes(posX + anchoElipse / 2, posY, anchoElipse, altoElipse);
+    Nubes elipse = new Nubes(posX + anchoElipse/2, posY, anchoElipse, altoElipse);
     elipses.add(elipse);
     posX += anchoElipse-30; // Avanzar a la siguiente elipse
   }
@@ -66,7 +82,7 @@ pezNave1.velocidad = new PVector(10,0); // se mueve horizontal
  PImage fondo1= loadImage("fondo.png");
  fondo= new FondoImagen(fondo1);  // creo nuevo objeto tipo FondoImagen
   //fondo1 = loadImage("Fondo.png");
-  tinte = color(100,250,200); // Tinte #64FAC8
+//tinte = color(0,0,2); // Tinte #64FAC8  
 //********** FIN SETUP FONDO DEL JUEGO  ///////////***********************  
 ////////******pezpayaso  *********////////
 pezpayaso1= loadImage("pezpayaso.png"); // Carga el pezpayaso
@@ -85,10 +101,19 @@ void draw() {
 //cargaFondo();
 fondo.dibujarFondo(); // AQUI SI SALE EL FONDO ATRAS DE TODO
 //****************** FIN LLAMA Y DIBUJA EL FONDO ******************
-
-//*****************  NUBES DEL DRAW  ********************
+//**** Dibujar rectángulo  *********
+//fill(2,15,227); //color de cielo;
+fill(#0046A0); //color de cielo;
+   rect(0, 0, width, rectanguloAltura);
+//******** Dibujar estrellas dentro del rectángulo **************//
+ for(int i = 0; i < estrellas.size(); i++) {
+    Estrella estrella = estrellas.get(i);
+    estrella.dibujar();
+ }
+//*****************fin de estrellas del Draw  **********************  
+//*****************  NUBES DEL DRAW  *******************************
 ponerLasNubes();
-//*****************  FIN NUBES DEL DRAW  ********************
+//*****************  FIN NUBES DEL DRAW  ****************************
 //***************pared de ladrillos DEL DRAW  *************************
 //background(255); // Fondo blanco
   pared.construirPared(); // llamo al Metodo dela clase y dibuja la pared de ladrillos
@@ -106,7 +131,7 @@ pulpo1.dibujar();
 pulpo1.mover();
     //image(fondo1, 0, 0, width, height-46);//coloca el fondo
     //paredLadrillos(); //llama a paredLadrillos
-    //  tint(#ECF2C6); // aplicar tinte driectamente
+      tint(#E8E9F0);//(0); // aplicar tinte driectamente
     //**************image(fondo1, 0, 0, width, height-46);//coloca el fondo
     //background(fondo1);
     //paredLadrillos();
